@@ -1,0 +1,9 @@
+importFrom("stats",
+	   pnorm, qnorm, rnorm,
+	   pt, qt,
+	   rchisq,
+	   cov2cor)
+
+importFrom("mvtnorm", rmvnorm, dmvnorm, pmvnorm, qmvnorm, GenzBretz, Miwa, TVPACK)
+
+export(condMVN, rcmvnorm, dcmvnorm, pcmvnorm)
