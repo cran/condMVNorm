@@ -22,8 +22,8 @@ rcmvnorm(n, mean, sigma, dependent.ind, given.ind,
  \item{mean}{mean vector, which must be specified.}
  \item{sigma}{a symmetric, positive-definte matrix of dimension n x n, which must be specified.}
  \item{dependent.ind}{a vector of integers denoting the indices of dependent variable Y.}
- \item{given.ind}{a vector of integers denoting the indices of conditoning variable X.}
- \item{X.given}{a vector of reals denoting the conditioning value of X. When both \code{given.ind} and \code{X.given} are missing, the distribution of \code{Y} becomes \code{Z[dependent.ind]}}
+ \item{given.ind}{a vector of integers denoting the indices of conditioning variable X. If specified as integer vector of length zero or left unspecified, the unconditional distribution is used.}
+ \item{X.given}{a vector of reals denoting the conditioning value of X. This should be of the same length as \code{given.ind}}
  \item{check.sigma}{logical; if \code{TRUE}, the variance-covariance matrix is checked for appropriateness (symmetry, positive-definiteness). This could be set to FALSE if the user knows it is appropriate.}
  \item{log}{logical; if \code{TRUE}, densities d are given as log(d).}
  \item{method}{string specifying the matrix decomposition used to
@@ -45,9 +45,11 @@ dcmvnorm(x=c(1.2,-1), mean=rep(1,n), sigma=A,
 	dependent.ind=c(2,5), given.ind=c(1,4,7,9), 
 	X.given=c(1,1,0,-1))
 
-dcmvnorm(x=-1, mean=rep(1,n), sigma=A, dep=3, given=c(1,4,7,9,10), X=c(1,1,0,0,-1))
+dcmvnorm(x=-1, mean=rep(1,n), sigma=A, dep=3, given=c(1,4,7,9,10), 
+  X=c(1,1,0,0,-1))
 
-dcmvnorm(x=c(1.2,-1), mean=rep(1,n), sigma=A, dep=c(2,5))
+dcmvnorm(x=c(1.2,-1), mean=rep(1,n), sigma=A, dep=c(2,5), 
+  given=integer())
 
 # gives an error since `x' and `dep' are incompatibe
 #dcmvnorm(x=-1, mean=rep(1,n), sigma=A, dep=c(2,3), 

@@ -17,8 +17,8 @@ pcmvnorm(lower=-Inf, upper=Inf, mean, sigma,
   \item{mean}{ the mean vector of length n.}
  \item{sigma}{a symmetric, positive-definte matrix, of dimension n x n, which must be specified.}
  \item{dependent.ind}{a vector of integers denoting the indices of the dependent variable Y.}
- \item{given.ind}{a vector of integers denoting the indices of the conditioning variable X.}
- \item{X.given}{a vector of reals denoting the conditioning value of X. When both \code{given.ind} and \code{X.given} are missing, the distribution of \code{Y} becomes \code{Z[dependent.ind]}}
+ \item{given.ind}{a vector of integers denoting the indices of the conditioning variable X. If specified as integer vector of length zero or left unspecified, the unconditional distribution is used.}
+ \item{X.given}{a vector of reals denoting the conditioning value of X. This should be of the same length as \code{given.ind}}
   \item{check.sigma}{logical; if \code{TRUE}, the variance-covariance matrix is checked for appropriateness (symmetry, positive-definiteness). This could be set to FALSE if the user knows it is appropriate.}
  \item{algorithm}{ an object of class \code{\link{GenzBretz}},
                     \code{\link{Miwa}} or \code{\link{TVPACK}}
@@ -47,12 +47,11 @@ n <- 10
 A <- matrix(rnorm(n^2), n, n)
 A <- A \%*\% t(A)
 
-pcmvnorm(lower=-Inf, upper=1, mean=rep(1,n), sigma=A, 	dependent.ind=3, given.ind=c(1,4,7,9,10), 
-	X.given=c(1,1,0,0,-1))
+pcmvnorm(lower=-Inf, upper=1, mean=rep(1,n), sigma=A, 	dependent.ind=3, 
+  given.ind=c(1,4,7,9,10), X.given=c(1,1,0,0,-1))
 
-pcmvnorm(lower=-Inf, upper=c(1,2), mean=rep(1,n), 
-	sigma=A, dep=c(2,5), given=c(1,4,7,9,10), 
-	X=c(1,1,0,0,-1))
+pcmvnorm(lower=-Inf, upper=c(1,2), mean=rep(1,n), sigma=A, 
+  dep=c(2,5), given=c(1,4,7,9,10), X=c(1,1,0,0,-1))
 
 pcmvnorm(lower=-Inf, upper=c(1,2), mean=rep(1,n), sigma=A, 
 	dep=c(2,5))

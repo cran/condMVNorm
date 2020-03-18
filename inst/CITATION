@@ -10,13 +10,13 @@ citEntry(entry = "Manual",
          author = personList(as.person("Ravi Varadhan")),
          year = year,
          note = note,
-         url = "http://CRAN.R-project.org/package=condMVNorm",
+         url = "https://CRAN.R-project.org/package=condMVNorm",
 
          textVersion =
          paste("Ravi Varadhan",
    	       sprintf("(%s).", year),	 
                "condMVNorm: Conditional Multivariate Normal Distribution.",
 	       paste(note, ".", sep = ""),
-               "URL http://CRAN.R-project.org/package=condMVNorm")
+               "https://CRAN.R-project.org/package=condMVNorm")
 )
 

@@ -1,2 +1,3 @@
 
   o  Version 2015.02-1.  First version of "condMVNorm" released on Feb 10, 2015.
+  o  Version 2020.1.  Allowed integer of length zero for `given.ind'

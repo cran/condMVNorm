@@ -11,8 +11,8 @@ condMVN(mean, sigma, dependent.ind, given.ind, X.given, check.sigma=TRUE)
  \item{mean}{mean vector, which must be specified.}
  \item{sigma}{a symmetric, positive-definte matrix of dimension n x n, which must be specified.}
  \item{dependent.ind}{a vector of integers denoting the indices of dependent variable Y.}
- \item{given.ind}{a vector of integers denoting the indices of conditoning variable X.}
- \item{X.given}{a vector of reals denoting the conditioning value of X. When both \code{given.ind} and \code{X.given} are missing, the distribution of \code{Y} becomes \code{Z[dependent.ind]}}
+ \item{given.ind}{a vector of integers denoting the indices of conditioning variable X.  If specified as integer vector of length zero or left unspecified, the unconditional density is returned.}
+ \item{X.given}{a vector of reals denoting the conditioning value of X. This should be of the same length as \code{given.ind}}
  \item{check.sigma}{logical; if \code{TRUE}, the variance-covariance matrix is checked for appropriateness (symmetry, positive-definiteness). This could be set to FALSE if the user knows it is appropriate.}
 }
 
@@ -23,9 +23,16 @@ n <- 10
 A <- matrix(rnorm(n^2), n, n)
 A <- A \%*\% t(A)
 
-condMVN(mean=rep(1,n), sigma=A, dependent=c(2,3,5), given=c(1,4,7,9),X.given=c(1,1,0,-1))
+condMVN(mean=rep(1,n), sigma=A, dependent=c(2,3,5), given=c(1,4,7,9),
+  X.given=c(1,1,0,-1))
 
 condMVN(mean=rep(1,n), sigma=A, dep=3, given=c(1,4,7,9), X=c(1,1,0,-1))
+
+condMVN(mean=rep(1,n), sigma=A, dep=3, given=integer())  
+# or simply the following
+
+condMVN(mean=rep(1,n), sigma=A, dep=3)  
+
 }
 \keyword{distribution}
 \keyword{multivariate}
