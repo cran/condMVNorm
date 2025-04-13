@@ -16,7 +16,7 @@ condMVN(mean, sigma, dependent.ind, given.ind, X.given, check.sigma=TRUE)
  \item{check.sigma}{logical; if \code{TRUE}, the variance-covariance matrix is checked for appropriateness (symmetry, positive-definiteness). This could be set to FALSE if the user knows it is appropriate.}
 }
 
-\seealso{\code{\link{dcmvnorm}}, \code{\link{pcmvnorm}}, \code{\link{pmvnorm}}, \code{\link{dmvnorm}}, \code{\link{qmvnorm}}}
+\seealso{\code{\link{dcmvnorm}}, \code{\link{pcmvnorm}}, \code{\link[mvtnorm]{pmvnorm}}, \code{\link[mvtnorm]{dmvnorm}}, \code{\link[mvtnorm]{qmvnorm}}}
 \examples{
 # 10-dimensional multivariate normal distribution
 n <- 10

@@ -20,8 +20,8 @@ pcmvnorm(lower=-Inf, upper=Inf, mean, sigma,
  \item{given.ind}{a vector of integers denoting the indices of the conditioning variable X. If specified as integer vector of length zero or left unspecified, the unconditional distribution is used.}
  \item{X.given}{a vector of reals denoting the conditioning value of X. This should be of the same length as \code{given.ind}}
   \item{check.sigma}{logical; if \code{TRUE}, the variance-covariance matrix is checked for appropriateness (symmetry, positive-definiteness). This could be set to FALSE if the user knows it is appropriate.}
- \item{algorithm}{ an object of class \code{\link{GenzBretz}},
-                    \code{\link{Miwa}} or \code{\link{TVPACK}}
+ \item{algorithm}{ an object of class \code{\link[mvtnorm]{GenzBretz}},
+                    \code{\link[mvtnorm]{Miwa}} or \code{\link[mvtnorm]{TVPACK}}
                     specifying both the algorithm to be used as well as 
                     the associated hyper parameters.}
   \item{...}{ additional parameters (currently given to \code{GenzBretz} for 
@@ -40,7 +40,7 @@ The evaluated distribution function is returned with attributes
   \item{msg}{status messages.}
 }
 
-\seealso{\code{\link{dcmvnorm}}, \code{\link{rcmvnorm}}, \code{\link{pmvnorm}}.}
+\seealso{\code{\link{dcmvnorm}}, \code{\link{rcmvnorm}}, \code{\link[mvtnorm]{pmvnorm}}.}
 
 \examples{
 n <- 10

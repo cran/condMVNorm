@@ -33,7 +33,7 @@ rcmvnorm(n, mean, sigma, dependent.ind, given.ind,
    Cholesky decomposition (\code{"chol"}).  The
    Cholesky is typically fastest, not by much though.}
 }
-\seealso{\code{\link{pcmvnorm}}, \code{\link{pmvnorm}}, \code{\link{dmvnorm}}, \code{\link{qmvnorm}}}
+\seealso{\code{\link{pcmvnorm}}, \code{\link[mvtnorm]{pmvnorm}}, \code{\link[mvtnorm]{dmvnorm}}, \code{\link[mvtnorm]{qmvnorm}}}
 \examples{
 # 10-dimensional multivariate normal distribution
 n <- 10
